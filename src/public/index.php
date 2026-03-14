@@ -1,14 +1,8 @@
 <?php
 
 declare(strict_types = 1);
-//phpinfo();
-spl_autoload_register(function ($className) {
-    $path =__DIR__.'/../' .lcfirst(str_replace('\\', '/', $className)) .'.php';
-    if(file_exists($path)){
-        require $path;
-    }
-});
-require_once __DIR__ . '/../app/helper.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use App\Classes\TransactionReader;
 use App\Classes\TransactionCalculater;
 
