@@ -1,6 +1,6 @@
 <?php
 
-use classes\Transaction;
+use app\classes\Transaction;
 
 function formatDollarAmount(float $amount): string
 {
