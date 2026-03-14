@@ -2,16 +2,15 @@
 
 declare(strict_types = 1);
 //phpinfo();
-
-require_once __DIR__ . '/../app/classes/Transaction.php';
-require_once __DIR__ . '/../app/classes/AbstractFileReader.php';
-require_once __DIR__ . '/../app/classes/CSVReader.php';
-require_once __DIR__ . '/../app/classes/TransactionReader.php';
-require_once __DIR__ . '/../app/classes/TransactionCalculater.php';
+spl_autoload_register(function ($className) {
+    $path =__DIR__.'/../' .lcfirst(str_replace('\\', '/', $className)) .'.php';
+    if(file_exists($path)){
+        require $path;
+    }
+});
 require_once __DIR__ . '/../app/helper.php';
-
-use app\classes\TransactionReader;
-use app\classes\TransactionCalculater;
+use App\Classes\TransactionReader;
+use App\Classes\TransactionCalculater;
 
 // Correct path to the directory
 $dirPath = __DIR__ . '/../transaction_files/';
